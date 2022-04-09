@@ -5,6 +5,7 @@ let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
 let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
+document.getElementById("answer").style.visibility = "hidden";
 
 //console.log(rightGuessString)
 
@@ -130,6 +131,8 @@ function checkGuess () {
     if (guessString === rightGuessString) {
         toastr.success("You guessed right! Game over!")
         guessesRemaining = 0
+        document.getElementById("answer").style.visibility = "visible";
+        document.getElementById("answer").textContent = rightGuessString;
         return
     } else {
         guessesRemaining -= 1;
@@ -139,6 +142,8 @@ function checkGuess () {
         if (guessesRemaining === 0) {
             toastr.error("You've run out of guesses! Game over!")
             toastr.info(`The right word was: "${rightGuessString}"`)
+            document.getElementById("answer").style.visibility = "visible";
+            document.getElementById("answer").textContent = rightGuessString;
         }
     }
 }

@@ -9,6 +9,10 @@ h1 {
      flex-direction: column;
      margin-left:50%;
    }
+
+   #answer{
+       font-size: 36px;
+   }
    
    #game-board {
      display: flex;
