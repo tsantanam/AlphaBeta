@@ -1,6 +1,6 @@
 import { WORDS } from "./words.js";
 
-const NUMBER_OF_GUESSES = 8;
+const NUMBER_OF_GUESSES = 10;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
@@ -56,7 +56,7 @@ function shadeKeyBoard(letter, color) {
 }
 
 function deleteLetter () {
-    let row = document.getElementsByClassName("letter-row")[8 - guessesRemaining]
+    let row = document.getElementsByClassName("letter-row")[10 - guessesRemaining]
     let box = row.children[nextLetter - 1]
     box.textContent = ""
     box.classList.remove("filled-box")
@@ -65,7 +65,7 @@ function deleteLetter () {
 }
 
 function checkGuess () {
-    let row = document.getElementsByClassName("letter-row")[8 - guessesRemaining]
+    let row = document.getElementsByClassName("letter-row")[10 - guessesRemaining]
     let guessString = ''
     let rightGuess = Array.from(rightGuessString)
 
@@ -125,8 +125,8 @@ function checkGuess () {
     }
     //document.getElementById('alpha-value').innerHTML =alpha;
     //document.getElementById('beta-value').innerHTML =beta;
-    document.getElementsByClassName("alpha-box")[8 - guessesRemaining].textContent = alpha;
-    document.getElementsByClassName("beta-box")[8 - guessesRemaining].textContent = beta;
+    document.getElementsByClassName("alpha-box")[10 - guessesRemaining].textContent = alpha;
+    document.getElementsByClassName("beta-box")[10 - guessesRemaining].textContent = beta;
 
     if (guessString === rightGuessString) {
         toastr.success("You guessed right! Game over!")
@@ -154,7 +154,7 @@ function insertLetter (pressedKey) {
     }
     pressedKey = pressedKey.toLowerCase()
 
-    let row = document.getElementsByClassName("letter-row")[8 - guessesRemaining]
+    let row = document.getElementsByClassName("letter-row")[10 - guessesRemaining]
     let box = row.children[nextLetter]
     animateCSS(box, "pulse")
     box.textContent = pressedKey
