@@ -11,6 +11,36 @@ document.getElementById("answer").style.visibility = "hidden";
 
 function initBoard() {
     let board = document.getElementById("game-board");
+    let header = document.getElementById("header");
+    let headrow = document.createElement("div")
+    headrow.className = "header-row"
+    for (let j = 0; j < 5; j++) {
+        let headbox = document.createElement("div")
+        headbox.className = "header-box"
+        headrow.appendChild(headbox)
+    }
+    for (let j = 5; j < 6; j++) {
+        let headscorebox = document.createElement("div")
+        headscorebox.className = "alpha-box2"
+        headrow.appendChild(headscorebox)
+    }
+    for (let j = 6; j < 7; j++) {
+        let headscorebox = document.createElement("div")
+        headscorebox.className = "beta-box2"
+        headrow.appendChild(headscorebox)
+    }
+
+    header.appendChild(headrow)
+    document.getElementsByClassName("header-box")[0].style.visibility = 'hidden';
+    document.getElementsByClassName("header-box")[1].style.visibility = 'hidden';
+    document.getElementsByClassName("header-box")[2].style.visibility = 'hidden';
+    document.getElementsByClassName("header-box")[3].style.visibility = 'hidden';
+    document.getElementsByClassName("header-box")[4].style.visibility = 'hidden';
+    document.getElementsByClassName("alpha-box2")[0].textContent = '\u03B1';
+    document.getElementsByClassName("beta-box2")[0].textContent = '\u03B2';
+
+
+
 
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
         let row = document.createElement("div")
